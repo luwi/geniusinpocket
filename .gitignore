@@ -104,3 +104,7 @@ logs
 # Temporary files
 tmp/
 temp/
+
+# Email subscription data files
+rate_limits.json
+submissions.json

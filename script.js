@@ -169,35 +169,60 @@ class GeniusInPocket {
             this.showMessage('Please enter a valid email address', 'error');
             return;
         }
-        
+
         // Show loading state
         const originalText = button.innerHTML;
         button.innerHTML = '<span class="loading">Subscribing...</span>';
         button.disabled = true;
-        
+
         try {
-            // Simulate API call (replace with actual endpoint)
-            await this.simulateAPICall();
-            
-            this.showMessage('🎉 Success! You\'ll be the first to know when we launch.', 'success');
-            document.getElementById('emailInput').value = '';
-            
-            // Add celebration effect
-            this.triggerCelebration();
-            
+            // Get honeypot value for spam protection
+            const honeypot = document.getElementById('website').value;
+
+            // Send to backend
+            const response = await fetch('./submit-email.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    email: email,
+                    website: honeypot // honeypot field
+                })
+            });
+
+            const result = await response.json();
+
+            if (result.success) {
+                this.showMessage('🎉 Success! You\'ll be the first to know when we launch.', 'success');
+                document.getElementById('emailInput').value = '';
+
+                // Add celebration effect
+                this.triggerCelebration();
+            } else {
+                throw new Error(result.message || 'Subscription failed');
+            }
+
         } catch (error) {
-            this.showMessage('Oops! Something went wrong. Please try again.', 'error');
+            console.error('Subscription error:', error);
+            let errorMessage = 'Oops! Something went wrong. Please try again.';
+
+            if (error.message.includes('Too many requests')) {
+                errorMessage = 'Too many requests. Please wait a moment and try again.';
+            } else if (error.message.includes('Invalid email')) {
+                errorMessage = 'Please enter a valid email address.';
+            } else if (error.message.includes('Disposable email')) {
+                errorMessage = 'Please use a permanent email address.';
+            }
+
+            this.showMessage(errorMessage, 'error');
         } finally {
             button.innerHTML = originalText;
             button.disabled = false;
         }
     }
     
-    simulateAPICall() {
-        return new Promise((resolve) => {
-            setTimeout(resolve, 1500);
-        });
-    }
+
     
     showMessage(text, type) {
         const existingMessage = document.querySelector('.message');

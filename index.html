@@ -90,12 +90,21 @@
                     <h3 class="signup-title">Be the first to know</h3>
                     <form class="signup-form" id="signupForm">
                         <div class="input-group">
-                            <input 
-                                type="email" 
-                                class="email-input" 
+                            <input
+                                type="email"
+                                class="email-input"
                                 placeholder="Enter your email address"
                                 required
                                 id="emailInput"
+                            >
+                            <!-- Honeypot field for spam protection (hidden) -->
+                            <input
+                                type="text"
+                                name="website"
+                                id="website"
+                                style="display: none !important; position: absolute; left: -9999px;"
+                                tabindex="-1"
+                                autocomplete="off"
                             >
                             <button type="submit" class="submit-btn">
                                 <span class="btn-text">Notify Me</span>
