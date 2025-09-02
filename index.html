@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Genius In Pocket - Something amazing is coming soon!">
+    <meta name="keywords" content="genius, innovation, technology, coming soon">
+    <meta name="author" content="Lubos Winkler">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Genius In Pocket - Coming Soon">
+    <meta property="og:description" content="Something amazing is being built! Stay tuned for the launch.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://github.com/luwi/geniusinpocket">
+    
+    <title>Genius In Pocket - Coming Soon</title>
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="./styles.css" as="style">
+    <link rel="preload" href="./script.js" as="script">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="./styles.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
+</head>
+<body>
+    <!-- Particle Background -->
+    <div id="particles-container"></div>
+    
+    <!-- Animated Background -->
+    <div class="animated-bg">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+    </div>
+    
+    <!-- Main Content -->
+    <main class="main-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo-container">
+                <h1 class="logo">
+                    <span class="logo-text">Genius</span>
+                    <span class="logo-highlight">In Pocket</span>
+                </h1>
+            </div>
+        </header>
+        
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h2 class="hero-title">
+                    <span class="title-line">Something</span>
+                    <span class="title-line">Amazing</span>
+                    <span class="title-line">Is Coming</span>
+                </h2>
+                
+                <p class="hero-subtitle">
+                    We're crafting an extraordinary experience that will revolutionize 
+                    how you think about innovation. Get ready for something incredible.
+                </p>
+                
+                <!-- Countdown Timer -->
+                <div class="countdown-container">
+                    <h3 class="countdown-title">Launch Countdown</h3>
+                    <div class="countdown" id="countdown">
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="days">00</span>
+                            <span class="countdown-label">Days</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="hours">00</span>
+                            <span class="countdown-label">Hours</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="minutes">00</span>
+                            <span class="countdown-label">Minutes</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="seconds">00</span>
+                            <span class="countdown-label">Seconds</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Email Signup -->
+                <div class="signup-container">
+                    <h3 class="signup-title">Be the first to know</h3>
+                    <form class="signup-form" id="signupForm">
+                        <div class="input-group">
+                            <input 
+                                type="email" 
+                                class="email-input" 
+                                placeholder="Enter your email address"
+                                required
+                                id="emailInput"
+                            >
+                            <button type="submit" class="submit-btn">
+                                <span class="btn-text">Notify Me</span>
+                                <span class="btn-icon">→</span>
+                            </button>
+                        </div>
+                    </form>
+                    <p class="signup-note">We'll never spam you. Unsubscribe at any time.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Features Preview -->
+        <section class="features-preview">
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <h4 class="feature-title">Innovation</h4>
+                    <p class="feature-description">Cutting-edge technology meets brilliant design</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h4 class="feature-title">Performance</h4>
+                    <p class="feature-description">Lightning-fast and incredibly efficient</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h4 class="feature-title">Precision</h4>
+                    <p class="feature-description">Perfectly crafted for your needs</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p class="footer-text">
+                &copy; 2024 Genius In Pocket. All rights reserved.
+            </p>
+            <div class="social-links">
+                <a href="https://github.com/luwi/geniusinpocket" class="social-link" target="_blank" rel="noopener">
+                    GitHub
+                </a>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Scripts -->
+    <script src="./script.js"></script>
+</body>
+</html>
