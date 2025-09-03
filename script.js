@@ -77,8 +77,8 @@ class GeniusInPocket {
     handleCountdownComplete() {
         document.querySelector('.countdown-container').innerHTML = `
             <div class="launch-message">
-                <h3>🚀 We're Live!</h3>
-                <p>The wait is over. Welcome to the future!</p>
+                <h3>⏰ Countdown Complete</h3>
+                <p>Stay tuned for updates!</p>
             </div>
         `;
     }
