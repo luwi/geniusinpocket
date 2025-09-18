@@ -1,3 +1,4 @@
+const NOTIFY_ENDPOINT = (typeof document !== 'undefined' && document.body?.dataset?.notifyEndpoint) || 'https://app.geniusinpocket.com/api/notify';
 // Genius In Pocket - Interactive JavaScript
 // Author: Lubos Winkler
 // Description: Handles countdown timer, particle effects, and user interactions
@@ -23,7 +24,7 @@ class GeniusInPocket {
         this.startCountdown();
         this.startParticleAnimation();
         
-        console.log('🚀 Genius In Pocket initialized successfully!');
+        console.log('Genius In Pocket initialized successfully!');
     }
     
     // Countdown Timer
@@ -77,7 +78,7 @@ class GeniusInPocket {
     handleCountdownComplete() {
         document.querySelector('.countdown-container').innerHTML = `
             <div class="launch-message">
-                <h3>⏰ Countdown Complete</h3>
+                <h3>Countdown Complete</h3>
                 <p>Stay tuned for updates!</p>
             </div>
         `;
@@ -180,7 +181,7 @@ class GeniusInPocket {
             const honeypot = document.getElementById('website').value;
 
             // Send to backend
-            const response = await fetch('./submit-email.php', {
+            const response = await fetch(NOTIFY_ENDPOINT, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -194,7 +195,7 @@ class GeniusInPocket {
             const result = await response.json();
 
             if (result.success) {
-                this.showMessage('🎉 Success! You\'ll be the first to know when we launch.', 'success');
+                this.showMessage('Success! You will be the first to know when we launch.', 'success');
                 document.getElementById('emailInput').value = '';
 
                 // Add celebration effect
@@ -407,3 +408,4 @@ window.addEventListener('resize', () => {
         }
     });
 });
+

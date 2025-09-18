@@ -1,30 +1,16 @@
 {
-  "name": "geniusinpocket",
-  "version": "1.0.0",
-  "description": "Amazing coming soon landing page with stunning animations",
-  "main": "index.html",
+  "name": "geniusinpocket-monorepo",
+  "version": "0.1.0",
+  "private": true,
+  "packageManager": "pnpm@9.0.0",
   "scripts": {
-    "start": "npx http-server . -p 3000",
-    "dev": "npx live-server --port=3000",
-    "build": "echo 'Build complete'",
-    "test": "echo 'No tests specified'"
+    "dev": "turbo run dev --parallel",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "test": "turbo run test",
+    "format": "turbo run format"
   },
-  "keywords": [
-    "landing-page",
-    "coming-soon",
-    "animations",
-    "css",
-    "javascript"
-  ],
-  "author": "Lubos Winkler",
-  "license": "MIT",
   "devDependencies": {
-    "http-server": "^14.1.1",
-    "live-server": "^1.2.2"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/luwi/geniusinpocket.git"
-  },
-  "homepage": "https://github.com/luwi/geniusinpocket#readme"
+    "turbo": "^2.0.0"
+  }
 }

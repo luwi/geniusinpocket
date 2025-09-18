@@ -1,52 +1,67 @@
-# Genius In Pocket
+# Genius In Pocket Monorepo
 
-🚀 **Amazing Coming Soon Landing Page**
+This repository is organised as a Turborepo powered monorepo managed by `pnpm`. It contains two primary applications and shared packages:
 
-A stunning, animated landing page featuring:
-- ✨ Particle effects and dynamic backgrounds
-- 🎨 Smooth CSS animations and transitions
-- ⏰ Interactive countdown timer
-- 📱 Fully responsive design
-- 🌟 Modern gradient effects
+- `apps/web` ? Astro static marketing site for www.geniusinpocket.com
+- `apps/app` ? Next.js 15 application for authenticated product surface, APIs, and AI orchestration
+- `packages/db` ? Shared Prisma client + schema for Supabase/Neon Postgres with pgvector
 
-## Features
+## Prerequisites
 
-- **Particle Animation System**: Dynamic floating particles with interactive effects
-- **Gradient Backgrounds**: Animated color transitions
-- **Countdown Timer**: Real-time countdown to launch
-- **Smooth Animations**: CSS3 and JavaScript powered animations
-- **Mobile Responsive**: Optimized for all devices
-- **Fast Loading**: Optimized performance
+- Node.js 20+
+- pnpm 9+
 
-## Development
+## Getting Started
 
 ```bash
-# Install dependencies
-npm install
-
-# Start development server
-npm run dev
-
-# Start simple server
-npm start
+pnpm install
+pnpm dev
 ```
 
-## Deployment
+The Turbo pipeline will start both the Astro and Next.js apps in parallel.
 
-This project is configured with GitHub Actions for automatic deployment via FTP.
+## Useful Scripts
 
-## Technologies Used
+- `pnpm build` ? Builds every workspace package/app
+- `pnpm lint` ? Runs linting across the monorepo
+- `pnpm test` ? Placeholder for future test suites
 
-- HTML5
-- CSS3 (Animations, Flexbox, Grid)
-- Vanilla JavaScript
-- Particle.js effects
-- CSS Custom Properties
+## Environment Variables
 
-## License
+Copy `.env.example` to `.env` in the repository root and populate:
 
-MIT License - see LICENSE file for details
+```
+DATABASE_URL=postgresql://...
+AUTH_SECRET=...
+EMAIL_SERVER=smtp://...
+EMAIL_FROM=...
+STRIPE_KEY=...
+STRIPE_WEBHOOK_SECRET=...
+POSTHOG_KEY=...
+POSTHOG_HOST=https://app.posthog.com
+CLOUDFLARE_ACCOUNT_ID=...
+CLOUDFLARE_API_TOKEN=...
+AI_WORKER_URL=https://...
+```
+
+Additional application-specific variables can be set per app in their own `.env` files.
+
+## Deployment Notes
+
+- Astro build artefacts (`apps/web/dist`) can be uploaded to cPanel static hosting.
+- The Next.js app is configured for Passenger (Node.js) deployments with `next start` and a standalone output bundle.
+- Prisma migrations should be executed through CI (`pnpm --filter @genius/db run generate` then `prisma migrate deploy`).
+- Stripe, Sentry, PostHog, and Vercel AI SDK integrations are stubbed and ready to be wired into runtime logic.
+
+## CI/CD
+
+Set up GitHub Actions to:
+
+1. Install dependencies with `pnpm install`.
+2. Run `pnpm lint && pnpm build`.
+3. Deploy Astro via cPanel FTP/API.
+4. Upload the Next.js standalone bundle to the Passenger app directory and trigger a restart.
 
 ---
 
-**Coming Soon** - Something amazing is being built! 🎉
+Welcome to the new Genius In Pocket platform stack!

@@ -1,0 +1,119 @@
+---
+import "../styles/global.css";
+const notifyEndpoint = import.meta.env.PUBLIC_NOTIFY_ENDPOINT ?? "https://app.geniusinpocket.com/api/notify";
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Genius In Pocket - Something amazing is coming soon!" />
+    <meta name="keywords" content="genius, innovation, technology, coming soon" />
+    <meta name="author" content="Lubos Winkler" />
+    <meta property="og:title" content="Genius In Pocket - Coming Soon" />
+    <meta property="og:description" content="Something amazing is being built! Stay tuned for the launch." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://geniusinpocket.com" />
+    <title>Genius In Pocket - Coming Soon</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  </head>
+  <body data-notify-endpoint={notifyEndpoint}>
+    <div id="particles-container"></div>
+    <div class="animated-bg">
+      <div class="gradient-orb orb-1"></div>
+      <div class="gradient-orb orb-2"></div>
+      <div class="gradient-orb orb-3"></div>
+    </div>
+    <main class="main-container">
+      <header class="header">
+        <div class="logo-container">
+          <h1 class="logo">
+            <span class="logo-text">Genius</span>
+            <span class="logo-highlight">In Pocket</span>
+          </h1>
+        </div>
+      </header>
+      <section class="hero">
+        <div class="hero-content">
+          <h2 class="hero-title">
+            <span class="title-line">Something</span>
+            <span class="title-line">Amazing</span>
+            <span class="title-line">Is Coming</span>
+          </h2>
+          <p class="hero-subtitle">
+            We are crafting an extraordinary experience that will revolutionize how you
+            think about innovation. Get ready for something incredible.
+          </p>
+          <div class="countdown-container">
+            <h3 class="countdown-title">Launch Countdown</h3>
+            <div class="countdown" id="countdown">
+              <div class="countdown-item">
+                <span class="countdown-number" id="days">00</span>
+                <span class="countdown-label">Days</span>
+              </div>
+              <div class="countdown-item">
+                <span class="countdown-number" id="hours">00</span>
+                <span class="countdown-label">Hours</span>
+              </div>
+              <div class="countdown-item">
+                <span class="countdown-number" id="minutes">00</span>
+                <span class="countdown-label">Minutes</span>
+              </div>
+              <div class="countdown-item">
+                <span class="countdown-number" id="seconds">00</span>
+                <span class="countdown-label">Seconds</span>
+              </div>
+            </div>
+          </div>
+          <div class="signup-container">
+            <h3 class="signup-title">Be the first to know</h3>
+            <form class="signup-form" id="signupForm">
+              <div class="input-group">
+                <input
+                  type="email"
+                  class="email-input"
+                  placeholder="Enter your email address"
+                  required
+                  id="emailInput"
+                />
+                <input
+                  type="text"
+                  name="website"
+                  id="website"
+                  style="display: none !important; position: absolute; left: -9999px;"
+                  tabindex="-1"
+                  autocomplete="off"
+                />
+                <button type="submit" class="submit-btn">
+                  <span class="btn-text">Notify Me</span>
+                  <span class="btn-icon">-&gt;</span>
+                </button>
+              </div>
+            </form>
+            <p class="signup-note">We will never spam you. Unsubscribe at any time.</p>
+          </div>
+        </div>
+      </section>
+      <section class="features-preview">
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">Innovation</div>
+            <h4 class="feature-title">Innovation</h4>
+            <p class="feature-description">Cutting-edge technology meets brilliant design.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">Performance</div>
+            <h4 class="feature-title">Performance</h4>
+            <p class="feature-description">Lightning-fast and incredibly efficient.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">Precision</div>
+            <h4 class="feature-title">Precision</h4>
+            <p class="feature-description">Perfectly crafted for your needs.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script src="/scripts/main.js" type="module"></script>
+  </body>
+</html>
